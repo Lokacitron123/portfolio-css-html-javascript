@@ -69,6 +69,16 @@ a:hover {
   cursor: default;
 }
 
+/* Sticky positioning of the nav */
+
+#desktop-nav,
+#hamburger-nav {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+}
+
 /* Hamburger menu */
 #hamburger-nav {
   display: none;
