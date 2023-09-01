@@ -1,5 +1,23 @@
-/* General */
+/* Custom Properties (Colors) */
+:root {
+  --bg-color: #0b0c10;
+  --text-color: #66fcf1;
 
+  --auxiliary-color: #c5c6c7;
+  --auxiliary-color-two: #1f2838;
+  --auxiliary-color-three: #45a29e;
+}
+
+/* utility class to create dark-mode switch */
+
+.color-swap {
+  --bg-color: #66fcf1;
+  --text-color: #0b0c10;
+  --auxiliary-color: #1f2838;
+}
+
+/* General */
+/* General */
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:wght@400;500;700;800&display=swap");
 
 *,
@@ -12,25 +30,25 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  background-color: var(--bg-color);
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-p {
-  color: rgb(85, 85, 85);
+p,
+h3 {
+  color: var(--text-color);
 }
 
 /* Transition  */
-
 a,
 .btn {
   transition: all 300ms ease;
 }
 
 /* Desktop */
-
 nav,
 .nav-links {
   display: flex;
@@ -39,6 +57,7 @@ nav,
 nav {
   justify-content: space-around;
   align-items: center;
+  background-color: var(--bg-color);
   height: 17vh;
 }
 
@@ -49,20 +68,21 @@ nav {
 }
 
 a {
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
-  text-decoration-color: white;
+  text-decoration-color: var(--text-color-dark);
 }
 
 a:hover {
-  color: grey;
+  color: var(--auxiliary-color-three);
   text-decoration: underline;
   text-underline-offset: 0.5rem;
-  text-decoration-color: rgb(181, 181, 181);
+  text-decoration-color: var(--auxiliary-color-three);
 }
 
 .logo {
   font-size: 2rem;
+  color: var(--text-color);
 }
 
 .logo:hover {
@@ -70,12 +90,11 @@ a:hover {
 }
 
 /* Sticky positioning of the nav */
-
 #desktop-nav,
 #hamburger-nav {
   position: sticky;
   top: 0;
-  background-color: white;
+
   z-index: 1000;
 }
 
@@ -101,19 +120,19 @@ a:hover {
 .hamburger-icon span {
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: var(--text-color);
   transition: all 0.3 ease-in-out;
 }
 
 .menu-links {
-  position: absolute; /* Position absolutely within .hamburger-menu */
-  top: 100%; /* Position at the bottom of .hamburger-menu */
-  right: 0; /* Align with the right edge of .hamburger-menu */
-  background-color: white; /* Set background color */
-  width: fit-content; /* Adjust width to fit content */
-  max-height: 0; /* Initially hide the content */
-  overflow: hidden; /* Hide anything beyond max-height */
-  transition: all 0.3 ease-in-out; /* Apply smooth transition */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--bg-color);
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
 }
 
 .menu-links a {
@@ -121,7 +140,7 @@ a:hover {
   padding: 10px;
   text-align: center;
   font-size: 1.5rem;
-  color: black;
+  color: var(--text-color);
   text-decoration: none;
   transition: all 0.3 ease-in-out;
 }
@@ -159,7 +178,6 @@ a:hover {
 }
 
 /* SECTIONS */
-
 section {
   padding-top: 4vh;
   height: 96vh;
@@ -173,7 +191,6 @@ section {
 }
 
 /* PROFILE SECTION */
-
 #profile {
   display: flex;
   justify-content: center;
@@ -207,6 +224,7 @@ section {
 }
 
 .title {
+  color: var(--text-color);
   font-size: 3rem;
   text-align: center;
 }
@@ -219,14 +237,15 @@ section {
 }
 
 /* ICONS */
-
 .icon {
   cursor: pointer;
   height: 2rem;
+  font-size: 2rem;
+  color: var(--text-color);
+  margin: 0.5rem;
 }
 
 /* BUTTONS */
-
 .btn-container {
   display: flex;
   justify-content: center;
@@ -238,12 +257,12 @@ section {
   transition: all 300ms ease;
   padding: 1rem;
   width: 8rem;
+
   border-radius: 2rem;
 }
 
-.btn-color-1,
-.btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
+.btn i {
+  font-size: 1.5rem;
 }
 
 .btn-color-1:hover,
@@ -251,22 +270,18 @@ section {
   cursor: pointer;
 }
 
-.btn-color-1,
-.btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
-}
-
 .btn-color-1:hover {
-  background: rgb(0, 0, 0);
+  color: var(--text-color);
 }
 
 .btn-color-2 {
-  background: none;
+  background-color: var(--text-color);
+  color: var(--bg-color);
 }
 
 .btn-color-2:hover {
-  border: rgb(255, 255, 255) 0.1rem solid;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .btn-container {
@@ -274,7 +289,6 @@ section {
 }
 
 /* About Section */
-
 #about {
   position: relative;
 }
@@ -300,6 +314,8 @@ section {
 }
 
 .arrow {
+  color: var(--text-color);
+  font-size: 1.5rem;
   position: absolute;
   right: -5rem;
   bottom: 2.5rem;
@@ -308,10 +324,10 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border: var(--auxiliary-color) 0.1rem solid;
+  border-color: var(--auxiliary-color);
   text-align: center;
 }
 
@@ -322,18 +338,17 @@ section {
 
 .section__pic-container {
   height: 400px;
-  width: 400px;
+  width: 400;
   margin: auto 0;
 }
 
-/* Experience secction */
-
+/* Experience section */
 #experience {
   position: relative;
 }
 
 .experience-sub-title {
-  color: rgb(85, 85, 85);
+  color: var(--text-color);
   font-weight: 700;
   font-size: 1.75rem;
   margin-bottom: 2rem;
@@ -366,13 +381,12 @@ article .icon {
 }
 
 /* Projects Section */
-
 #projects {
   position: relative;
 }
 
 .color-container {
-  border-color: rgb(163, 163, 163);
+  border-color: var(--auxiliary-color);
   background: rgb(250, 250, 250);
 }
 
@@ -384,16 +398,10 @@ article .icon {
 
 .project-title {
   margin: 1rem;
-  color: black;
-}
-
-.project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+  color: var(--text-color-light);
 }
 
 /* Contact */
-
 #contact {
   display: flex;
   justify-content: center;
@@ -405,8 +413,8 @@ article .icon {
   display: flex;
   justify-content: center;
   border-radius: 2rem;
-  border: rgb(53, 53, 53) 0.1rem solid;
-  border-color: rgb(163, 163, 163);
+  border: var(--border-color) 0.1rem solid;
+  border-color: var(--border-color);
   background-color: rgb(250, 250, 250);
   margin: 2rem auto;
   padding: 0.5rem;
@@ -435,7 +443,6 @@ article .icon {
 }
 
 /* Footer */
-
 footer {
   height: 26vh;
   margin: 0 1rem;
